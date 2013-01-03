@@ -162,6 +162,7 @@ class SimpleMatrix
   #  :rownames => true  (default)  Output row names.
   #  :colnames => true  (default)  Output column names.
   def write(file = nil, opts = {})
+
     matrix_string = self.to_s(opts[:rownames], opts[:colnames])
     if file
       File.open(file, 'w') { |fout| fout.write(matrix_string) }
