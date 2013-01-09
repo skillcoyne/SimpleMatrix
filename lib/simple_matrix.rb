@@ -18,9 +18,19 @@ class SimpleMatrix
     names.each_with_index { |e, i| @cols[i] = [] } if @cols.length <= 0
   end
 
+  # Alias for colnames
+  def columnnames=(names)
+		colnames = names
+  end
+
   # Set the column name at the given index
   def colname(i, name)
     @colnames[i] = name
+  end
+
+  # Alias for colname
+  def columnname(i, name)
+    colname(i, name)
   end
 
   # Set row name at a given index
@@ -48,6 +58,11 @@ class SimpleMatrix
   def column(name)
     index = @colnames.index(name.to_s)
     @cols[index]
+  end
+
+  # Alias for column()
+  def col(name)
+    column(name)
   end
 
   # Retrieve row by name.  If multiple rows have the same name only the first one will be returned.
@@ -120,6 +135,11 @@ class SimpleMatrix
     values.each_with_index do |e, j|
       @rows[j][i] = e
     end
+  end
+
+  def update_row(row, values)
+    warn "Not yet implemented"
+    return nil
   end
 
   # Returns element at given location.  Row/column names can be provided,
